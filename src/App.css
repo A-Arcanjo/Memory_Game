@@ -21,3 +21,184 @@
   width: 120px;
   height: 120px;  
 }
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navigation .logo {
+  margin: 20px;
+}
+
+.logo_img {
+  height: 100px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+nav li a:hover {
+  color: red;
+}
+
+main {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+main img {
+  max-width: 700px;
+}
+
+img {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.long-arrow-right {
+  display: block;
+  margin: 30px auto;
+  width: 25px;
+  height: 25px;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+}
+
+.long-arrow-right {
+  transform: rotate(135deg);
+}
+.long-arrow-right::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 45px;
+  background-color: white;
+  transform: rotate(-45deg) translate(15px, 4px);
+  left: 0;
+  top: 0;
+}
+
+.navigCartoons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listCartoons {
+  margin: auto;
+  padding: 20px;
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+li {
+  margin: 0 20px;
+  line-height: 1.7;
+}
+
+li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: red;
+}
+
+button {
+  background-color: aqua;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.form_container {
+  display: inline-block;
+  padding: 10px 40px 20px 40px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+.heading_container,
+.button_container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+h2,
+input,
+textarea,
+select {
+  display: block;
+  margin: 10px 0 20px 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+textarea {
+  width: 200px;
+  height: 100px;
+}
+
+.radio_label {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0 20px 0 5px;
+}
+
+.radio_input {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.errorVisible {
+  display: block;
+  padding-bottom: 5px;
+  color: red;
+}
+
+.errorInvisible {
+  display: none;
+  padding-bottom: 5px;
+  color: red;
+}
+
+.newForm {
+  display: flex;
+  justify-content: center;
+}
