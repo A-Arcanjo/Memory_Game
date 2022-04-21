@@ -1,9 +1,9 @@
-import React, { useState, createContext } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import './App.css';
+
+import React from 'react';
+import Cards from './components/Cards';
 import Navigation from './Components/Navigation';
 import Score from './views/Score';
-
+import './App.css';
 
 export const ScoreContext = createContext();
 
@@ -27,8 +27,12 @@ const App = () => {
             <Score />
           </ScoreContext.Provider>
         </Route>
-      </Router>
+<div className="cards-container">
+      
+      <Cards />
     </div>
+      </Router>
+   </div>
   );
 };
 
