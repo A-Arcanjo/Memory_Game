@@ -1,4 +1,4 @@
-APP[context provider](Parent);
+/*APP[context provider](Parent);
 
 
 Views
@@ -10,3 +10,4 @@ EasyMode / HardMode                   Form                 DinosaursHistory     
 (GrandChildren) => 4) ShuffleCards[context consumer]
 (GrandChildren) => 4) Start[context consumer]
 (GrandChildren) => 4) SaveScore(Form)[context consumer]
+*/
