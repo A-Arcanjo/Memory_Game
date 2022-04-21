@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ScoreContext } from "../App";
 
 const HighScores = () => {
-  const [scoreState, setScoreState] = useState("");
+  const [score, setScore] = useState([]);
   const [name, setName] = useState("");
   const [nameChanged, setNameChanged] = useState(false);
   const [email, setEmail] = useState("");
@@ -10,11 +10,15 @@ const HighScores = () => {
 
   const emailErrorDiv = React.createRef();
 
-  const score = useContext(ScoreContext);
+  const score1 = useContext(ScoreContext);
 
   // When the user updates one of the form elements, check its "name"
   // And then update the correct state variable with the new value
   // Now we can update all the state variables correctly using just one function!
+
+  useEffect(() => {
+    localStorage.setItem("score", JSON.stringify(score));
+  }, [score]);
 
   const updateData = (event) => {
     switch (event.target.name) {
@@ -123,6 +127,23 @@ const HighScores = () => {
                     3. To do this, we must add an "onChange" event handler to the input
                     4. This calls a function which updates the STATE variable "name"
                     */}
+              <label htmlFor="users_name">Score </label>
+              <input
+                id="users_score"
+                name="users_score"
+                onChange={updateData}
+                // value={}
+              />{" "}
+              {/* onBlur={checkNameOnBlur} */}
+              <div
+                className={
+                  nameChanged && name.trim === 0
+                    ? "errorVisible"
+                    : "errorInvisible"
+                }
+              >
+                Please enter your name
+              </div>{" "}
               <label htmlFor="users_name">Name</label>
               <input
                 id="users_name"
