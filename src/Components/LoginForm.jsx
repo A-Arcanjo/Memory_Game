@@ -1,8 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { ScoreContext } from "../App";
 
 const HighScores = () => {
-  const [scores, setScores] = useState(0);
+  const { setUserData } = useContext(ScoreContext);
+  const navigate = useNavigate();
+  /* const [scores, setScores] = useState(0); */
   const [errorPlayerName, setErrorPlayerName] = useState("");
   const [errorPlayerEmail, setErrorPlayerEmail] = useState("");
   // const localData = localStorage.getItem("scores");
@@ -19,9 +22,9 @@ const HighScores = () => {
   // And then update the correct state variable with the new value
   // Now we can update all the state variables correctly using just one function!
 
-  useEffect(() => {
+  /* useEffect(() => {
     localStorage.setItem("scores", JSON.stringify(scores));
-  }, [scores]);
+  }, [scores]); */
 
   const updateData = (event) => {
     switch (event.target.name) {
@@ -68,32 +71,34 @@ const HighScores = () => {
     }
 
     if (
-      playerName.length > 0 &&
-      /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)
+      playerName.length > 0 /* &&
+      /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email) */
     ) {
-      const userData = {
+      /* const userData = {
         playerName: playerName,
         email: email,
-      };
-
-      const settings = {
+      }; */
+      setUserData({ playerName: playerName });
+      navigate("/cards");
+      /*  const settings = {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
           "Content-Type": "application/JSON",
         },
-      };
+      }; */
 
-      fetch("https://jsonplaceholder.typicode.com/users", settings)
+      /* fetch("https://jsonplaceholder.typicode.com/users", settings)
         .then((response) => response.json())
         .then((data) => {
           console.log("Response from server", data);
-        });
+        }); */
 
       setPlayerName(""); // Reset the value of the "name" state variable / input element
       setPlayerNameChanged(false);
       setEmail(""); // Etc
       setEmailChanged(false);
+
       // ELSE, do not submit the form if one or more checks fail
       // Instead, give the user an alert for each failed calert    } else {
     }
@@ -103,7 +108,7 @@ const HighScores = () => {
       <div className="container">
         <div className="form_container">
           <div className="heading_container">
-            <h2>Scores</h2>
+            <h2>Enter your name</h2>
           </div>
           <div className="newForm">
             <form onSubmit={submitForm}>
@@ -117,7 +122,7 @@ const HighScores = () => {
               >
                 Please enter your name
               </div> */}
-              <p>Score: {scores}</p>
+              {/* <p>Score: {scores}</p> */}
               <label htmlFor="users_name">Name</label>
               <input
                 id="users_name"
@@ -137,7 +142,7 @@ const HighScores = () => {
               </div> */}
               <p className="errorVisible">{errorPlayerName || ""}</p>
               {/*ref={nameErrorDiv}*/}
-              <label htmlFor="email">Email</label>
+              {/* <label htmlFor="email">Email</label>
               <input
                 id="email"
                 name="email"
@@ -145,7 +150,7 @@ const HighScores = () => {
                 onBlur={checkEmail}
                 value={email}
               />
-              <p className="errorVisible">{errorPlayerEmail || ""}</p>
+              <p className="errorVisible">{errorPlayerEmail || ""}</p> */}
               {/* <div
                 className={
                   email.length === 0 && emailChanged === true
@@ -159,7 +164,7 @@ const HighScores = () => {
                 Incorrect format
               </div> */}
               <div className="button_container">
-                <button type="submit">Submit Data</button>
+                <button type="submit">Play</button>
               </div>
             </form>
           </div>
