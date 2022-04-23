@@ -2,31 +2,36 @@ import React, { useState, useContext, useEffect } from "react";
 import { ScoreContext } from "../App";
 
 const HighScores = () => {
-  const [score, setScore] = useState([]);
-  const [name, setName] = useState("");
-  const [nameChanged, setNameChanged] = useState(false);
+  const [scores, setScores] = useState(0);
+  const [errorPlayerName, setErrorPlayerName] = useState("");
+  const [errorPlayerEmail, setErrorPlayerEmail] = useState("");
+  // const localData = localStorage.getItem("scores");
+  //localData ? JSON.parse(localData) : [];
+  const [playerName, setPlayerName] = useState("");
+  const [nameChanged, setPlayerNameChanged] = useState(false);
   const [email, setEmail] = useState("");
   const [emailChanged, setEmailChanged] = useState(false);
-
   const emailErrorDiv = React.createRef();
 
-  const score1 = useContext(ScoreContext);
+  // const score1 = useContext(ScoreContext);
 
   // When the user updates one of the form elements, check its "name"
   // And then update the correct state variable with the new value
   // Now we can update all the state variables correctly using just one function!
 
   useEffect(() => {
-    localStorage.setItem("score", JSON.stringify(score));
-  }, [score]);
+    localStorage.setItem("scores", JSON.stringify(scores));
+  }, [scores]);
 
   const updateData = (event) => {
     switch (event.target.name) {
       case "users_name":
-        setName(event.target.value);
-        setNameChanged(true);
+        setErrorPlayerName("");
+        setPlayerName(event.target.value);
+        setPlayerNameChanged(true);
         break;
       case "email":
+        setErrorPlayerEmail("");
         setEmail(event.target.value);
         setEmailChanged(true);
         break;
@@ -34,19 +39,6 @@ const HighScores = () => {
         break;
     }
   };
-
-  {
-    /*
-    const checkNameOnBlur = () => {
-        if (name.trim().length === 0) {
-            nameErrorDiv.current.style.display = "block";
-        } else {
-            nameErrorDiv.current.style.display = "none";
-        }
-
-    };
-*/
-  }
 
   const checkEmail = () => {
     let validate = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
@@ -61,22 +53,26 @@ const HighScores = () => {
   const submitForm = (event) => {
     event.preventDefault();
 
-    // * Option 1: log all the user data from the form to the console
+    if (playerName.length === 0) {
+      setErrorPlayerName("Please enter your name");
+    } else {
+      setErrorPlayerName("");
+    }
 
-    // console.log("Name", name);
-    // console.log("Age", age);
-    // console.log("Email", email);
-    // console.log("Comment", comment);
-    // console.log("Gender", gender);
-
-    // * Option 2: use fetch to POST the user's data to a server, and log the server's response
+    if (email.length === 0) {
+      setErrorPlayerEmail("Please enter your email");
+    } else if (/^[a-zA-Z0-9]+@[0-9]+\.[A-Za-z]+$/.test(email) === false) {
+      setErrorPlayerEmail("Please enter your email in a correct format");
+    } else {
+      setErrorPlayerEmail("");
+    }
 
     if (
-      name.length > 0 &&
+      playerName.length > 0 &&
       /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)
     ) {
       const userData = {
-        name: name,
+        playerName: playerName,
         email: email,
       };
 
@@ -94,19 +90,12 @@ const HighScores = () => {
           console.log("Response from server", data);
         });
 
-      setName(""); // Reset the value of the "name" state variable / input element
-      setNameChanged(false);
+      setPlayerName(""); // Reset the value of the "name" state variable / input element
+      setPlayerNameChanged(false);
       setEmail(""); // Etc
       setEmailChanged(false);
       // ELSE, do not submit the form if one or more checks fail
-      // Instead, give the user an alert for each failed check
-    } else {
-      if (name.length === 0) {
-        alert("Please enter your name");
-      }
-      if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email) === false) {
-        alert("Please enter your email in a correct format");
-      }
+      // Instead, give the user an alert for each failed calert    } else {
     }
   };
   return (
@@ -118,49 +107,35 @@ const HighScores = () => {
           </div>
           <div className="newForm">
             <form onSubmit={submitForm}>
-              {/* 
-                    Making the input a controlled component:
-
-                    1. Give the input a "value" linked to the "name" state variable
-                    2. However, now to change what the user can see in the input...
-                    ... first we must update the STATE VARIABLE!
-                    3. To do this, we must add an "onChange" event handler to the input
-                    4. This calls a function which updates the STATE variable "name"
-                    */}
-              <label htmlFor="users_name">Score </label>
-              <input
-                id="users_score"
-                name="users_score"
-                onChange={updateData}
-                // value={}
-              />{" "}
-              {/* onBlur={checkNameOnBlur} */}
-              <div
+              <label /> {/* onBlur={checkNameOnBlur} */}
+              {/* <div
                 className={
-                  nameChanged && name.trim === 0
+                  nameChanged && playerName.trim === 0
                     ? "errorVisible"
                     : "errorInvisible"
                 }
               >
                 Please enter your name
-              </div>{" "}
+              </div> */}
+              <p>Score: {scores}</p>
               <label htmlFor="users_name">Name</label>
               <input
                 id="users_name"
                 name="users_name"
                 onChange={updateData}
-                value={name}
-              />{" "}
+                value={playerName}
+              />
               {/* onBlur={checkNameOnBlur} */}
-              <div
+              {/* <div
                 className={
-                  nameChanged && name.trim === 0
+                  nameChanged && playerName.trim === 0
                     ? "errorVisible"
                     : "errorInvisible"
                 }
               >
                 Please enter your name
-              </div>{" "}
+              </div> */}
+              <p className="errorVisible">{errorPlayerName || ""}</p>
               {/*ref={nameErrorDiv}*/}
               <label htmlFor="email">Email</label>
               <input
@@ -170,7 +145,8 @@ const HighScores = () => {
                 onBlur={checkEmail}
                 value={email}
               />
-              <div
+              <p className="errorVisible">{errorPlayerEmail || ""}</p>
+              {/* <div
                 className={
                   email.length === 0 && emailChanged === true
                     ? "errorVisible"
@@ -178,10 +154,10 @@ const HighScores = () => {
                 }
               >
                 Please enter your email
-              </div>
-              <div className="errorInvisible" ref={emailErrorDiv}>
+              </div> */}
+              {/* <div className="errorInvisible" ref={emailErrorDiv}>
                 Incorrect format
-              </div>
+              </div> */}
               <div className="button_container">
                 <button type="submit">Submit Data</button>
               </div>

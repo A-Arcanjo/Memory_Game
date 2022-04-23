@@ -16,19 +16,12 @@ const App = () => {
           <Navigation />
         </header>
         <Route path="/score" exact>
-          <ScoreContext.Provider value={{
-            // allScores: scores,
-            // newCommentTitle: newCommentTitle,
-            // newCommentBody: newCommentBody,
-            // updateNewCommentTitle: updateNewCommentTitle,
-            // updateNewCommentBody: updateNewCommentBody,
-            // updateComments: updateComments
-          }}>
-            <Score />
+          <ScoreContext.Provider value={{}}>
+            < Score />
           </ScoreContext.Provider>
         </Route>
       </Router>
-    </div>
+    </div >
   );
 };
 
