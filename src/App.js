@@ -1,38 +1,39 @@
-
-import React from 'react';
-import Cards from './components/Cards';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { createContext, useState } from 'react';
+import Cards from './Components/Cards';
 import Navigation from './Components/Navigation';
-import Score from './views/Score';
+import LoginPage from './views/LoginPage';
 import './App.css';
 
 export const ScoreContext = createContext();
 
 const App = () => {
+  const [userData, setUserData] = useState({ playerName: null });
   return (
     <div className="">
+      <ScoreContext.Provider value={{ userData, setUserData }}>
+        <Router>
+          {/* <header>
+            <Navigation />
+          </header> */}
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/cards" element={<Cards />} />
+            {/* <Route path="/score" exact>
 
-      <Router>
-        <header>
-          <Navigation />
-        </header>
-        <Route path="/score" exact>
-          <ScoreContext.Provider value={{
-            // allScores: scores,
-            // newCommentTitle: newCommentTitle,
-            // newCommentBody: newCommentBody,
-            // updateNewCommentTitle: updateNewCommentTitle,
-            // updateNewCommentBody: updateNewCommentBody,
-            // updateComments: updateComments
-          }}>
             <Score />
-          </ScoreContext.Provider>
-        </Route>
-<div className="cards-container">
-      
-      <Cards />
+
+          </Route> */}
+
+            {/* <div className="cards-container">
+            <Cards />
+          </div> */}
+
+          </Routes>
+        </ Router>
+      </ScoreContext.Provider>
     </div>
-      </Router>
-   </div>
+
   );
 };
 
