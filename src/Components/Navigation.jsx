@@ -26,6 +26,9 @@ const Navigation = () => {
           </li>
         </ul>
       </nav>
+      <div className="logo">
+        <img src={dinoLogo} alt="Logo" className="img_logo" />
+      </div>
     </div>
   );
 };
