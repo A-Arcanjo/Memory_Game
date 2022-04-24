@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { ScoreContext } from "../App";
 
+
+
 const HighScores = () => {
   const [scoreState, setScoreState] = useState("");
   const [name, setName] = useState("");
@@ -31,8 +33,8 @@ const HighScores = () => {
     }
   };
 
-  {
-    /*
+  /*{
+    
     const checkNameOnBlur = () => {
         if (name.trim().length === 0) {
             nameErrorDiv.current.style.display = "block";
@@ -41,8 +43,8 @@ const HighScores = () => {
         }
 
     };
-*/
-  }
+
+  }*/
 
   const checkEmail = () => {
     let validate = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
@@ -162,7 +164,7 @@ const HighScores = () => {
                 Incorrect format
               </div>
               <div className="button_container">
-                <button type="submit">Submit Data</button>
+                <button type="submit" className="submit-button">Submit Data</button>
               </div>
             </form>
           </div>

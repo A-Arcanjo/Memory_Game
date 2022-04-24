@@ -1,3 +1,7 @@
+/* * Andreia Styling * */
+
+/* CARDS */
+
 .cards-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -9,18 +13,31 @@
   position: relative;
   border:2px solid rgb(155, 127, 127);
   border-radius: 5px;
+  cursor: pointer;
 }
-
+ /* front of the card */
 .card-front {
+  /* position: absolute; */
   width: 120px;
   height: 120px;
+  /* transform:rotateY(90deg); */
 }
+
+/* .flipped .card-front {
+  transform: rotate(0deg)
+} */
+
+/* back of the card */
 
 .card-back {
   display:block;
   width: 120px;
   height: 120px;  
 }
+
+
+
+/* *  GIORGIO STYLING  * */
 
 .navigation {
   display: flex;
@@ -71,7 +88,7 @@ main img {
   max-width: 700px;
 }
 
-img {
+.logo {
   display: flex;
   margin-bottom: 20px;
 }
@@ -133,7 +150,7 @@ a:hover {
   color: red;
 }
 
-button {
+.submit-button {
   background-color: aqua;
 }
 

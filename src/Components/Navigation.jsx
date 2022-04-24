@@ -7,7 +7,7 @@ const Navigation = () => {
     <div className="navigation">
       <div className="logo">
         <Link to="/">
-          {/* <img className="nav_img" src={dinoLogo} alt="Find the Dino"></img> */}
+          <img src={dinoLogo} alt="" /> 
         </Link>
       </div>
       <nav>
