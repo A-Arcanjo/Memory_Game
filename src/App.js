@@ -13,11 +13,11 @@ const App = () => {
     <div className="">
       <ScoreContext.Provider value={{ userData, setUserData }}>
         <Router>
-          {/* <header>
+          <header>
             <Navigation />
-          </header> */}
+          </header>
           <Routes>
-            <Route path="/" element={<LoginPage />} />
+            <Route path="/home" element={<LoginPage />} />
             <Route path="/cards" element={<Cards />} />
             {/* <Route path="/score" exact>
 

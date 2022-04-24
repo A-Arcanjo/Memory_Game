@@ -19,26 +19,32 @@ const Cards = () => {
   console.log(cards);
   return (
     <div>
-      <p>
-        Player: <h3>{userData.playerName}</h3>
-      </p>
-      <button onClick={shuffleCards}>Load Cards</button>
-      <div className="cards-container">
-        {cards.map((card) => (
-          <div className="card" key={card.id}>
-            <div>
-              <div
-                style={{ backgroundColor: card.color }}
-                className="card-front"
-              ></div>
-              <img
-                src={VolcanoErupting}
-                alt="volcano erupting"
-                className="card-back"
-              />
-            </div>
+      <div className="container_load">
+        <div className="form_container">
+          <div className="heading_container">
+            <h2>Player: {userData.playerName}</h2>
           </div>
-        ))}
+          <div className="button_container">
+            <button onClick={shuffleCards}>Load Cards</button>
+          </div>
+          <div className="cards-container">
+            {cards.map((card) => (
+              <div className="card" key={card.id}>
+                <div>
+                  <div
+                    style={{ backgroundColor: card.color }}
+                    className="card-front"
+                  ></div>
+                  <img
+                    src={VolcanoErupting}
+                    alt="volcano erupting"
+                    className="card-back"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
