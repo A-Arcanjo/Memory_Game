@@ -26,8 +26,28 @@ const Cards = (props) => {
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
     }
     
-   
+     // * MATCH CARDS
+ useEffect(()=>{
+    if(choiceOne && choiceTwo){
+        if(choiceOne.color === choiceTwo.color){
+            setCards(previousCards => {
+                return previousCards.map(card => {
+                    if(card.color === choiceOne.color) {
+                        return {...card, matched:true}
+                    } else {
+                        return card
+                    }
+                })
+            })
+            setChoiceOne(null)
+            setChoiceTwo(null) 
+        } else {
+            setChoiceOne(null)
+            setChoiceTwo(null)  }                    
+    }
+},[choiceOne, choiceTwo])
 
+ console.log(cards);
     return (
         <div>
             <div className="container_load">

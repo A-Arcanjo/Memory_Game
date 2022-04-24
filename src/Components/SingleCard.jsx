@@ -12,7 +12,8 @@ const SingleCard = (props) => {
     return (
         <div  className="card"> 
             <div >
-                <div style={{backgroundColor : props.color}} className="card-front" ></div>
+                <div style={{backgroundColor : props.color}} className="card-front" ></div> 
+                
                 <img 
                 src={VolcanoErupting} 
                 alt="volcano erupting" 
