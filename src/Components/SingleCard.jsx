@@ -11,11 +11,14 @@ const SingleCard = (props) => {
 
     return (
         <div  className="card"> 
+
             <div className={props.flipped ? "flipped" : ""}>
+
                 <img 
                 className="card-front" 
                 src={props.src} 
                 alt=""/> 
+
                 <img 
                 src={VolcanoErupting} 
                 alt="volcano erupting" 
