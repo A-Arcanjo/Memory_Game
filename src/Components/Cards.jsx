@@ -38,9 +38,7 @@ const Cards = (props) => {
                         return card
                     }
                 })
-            }
-
-            )
+            })
              reset()
         } else {
           setTimeout( () => 
@@ -53,8 +51,6 @@ const Cards = (props) => {
         setChoiceOne(null)
         setChoiceTwo(null) 
     }
-
-    // * DELETE MATCHED CARDS
   
 
  console.log(cards);
