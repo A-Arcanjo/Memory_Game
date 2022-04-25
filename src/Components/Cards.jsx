@@ -1,30 +1,29 @@
-
-import React, {useState, useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ScoreContext } from "../App";
 import SingleCard from "./SingleCard";
 import { data } from "./cardsData";
 
 const Cards = (props) => {
-    //const { userData } = useContext(ScoreContext);
-    const [cards, setCards] = useState([]);
-    const [choiceOne, setChoiceOne] = useState(null)
-    const [choiceTwo, setChoiceTwo] = useState(null)
+  const { userData } = useContext(ScoreContext);
+  const [cards, setCards] = useState([]);
+  const [choiceOne, setChoiceOne] = useState(null);
+  const [choiceTwo, setChoiceTwo] = useState(null);
 
-    // * SHUFFLE CARDS
-    const shuffleCards = () => {
-        const shuffledCards = [...data, ...data]
-        .sort(()=> Math.random() - 0.5)
-        .map((card) => ({ ...card, id: Math.random() }));
-  
-         setCards(shuffledCards)
-        
-    }
+  // * SHUFFLE CARDS
+  const shuffleCards = () => {
+    const shuffledCards = [...data, ...data]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: Math.random() }));
 
-    // * CHOOSE CARDS     
-    const choseCards = (card) => {
-        console.log(card);
-        choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
-    }
+    setCards(shuffledCards);
+  };
+
+  // * CHOOSE CARDS
+  const choseCards = (card) => {
+    console.log(card);
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  };
+
     
     // * MATCH CARDS
     useEffect(()=>{
@@ -52,21 +51,21 @@ const Cards = (props) => {
         setChoiceTwo(null) 
     }
 
+  console.log(cards);
+  return (
+    <div>
+      <div className="container_load">
+        <div className="form_container">
+          <div className="heading_container">
+            <h2>Player: {userData.playerName}</h2>
+          </div>
 
- console.log(cards);
-    return (
-        <div>
-            <div className="container_load">
-                <div className="form_container">
-                    <div className="heading_container">
-                        <h2>Player: </h2>
-                        {/* {userData.playerName} */}
-                    </div>
           <div className="button_container">
             <button onClick={shuffleCards}>Load Cards</button>
           </div>
-        <div>
+          <div>
             <div className="cards-container">
+
                 {/* // * Generate Cards */} 
                 {cards.map(card => (
                      <SingleCard 
@@ -77,12 +76,13 @@ const Cards = (props) => {
                      flipped={card === choiceOne || card === choiceTwo || card.matched}
                      />
                 ))}
+                
             </div>
+          </div>
         </div>
-        </div>
-        </div>
+      </div>
     </div>
-    )
-}
+  );
+};
 
 export default Cards;

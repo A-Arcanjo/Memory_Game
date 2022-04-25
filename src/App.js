@@ -4,6 +4,7 @@ import React, { createContext, useState } from 'react';
 import Cards from './Components/Cards';
 import Navigation from './Components/Navigation';
 import LoginPage from './views/LoginPage';
+import StartGame from "./views/StartGame";
 import './App.css';
 
 export const ScoreContext = createContext();
@@ -14,21 +15,24 @@ const App = () => {
 
 
     <div className="">
-      {/* <ScoreContext.Provider value={{ userData, setUserData }}>
+      <ScoreContext.Provider value={{ userData, setUserData }}>
         <Router>
           <header>
             <Navigation />
           </header>
           <Routes>
-            <Route path="/home" element={<LoginPage />} />
+            <Route path="/home" element={<StartGame />} />
+
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/cards" element={<Cards />} />
             {/* <Route path="/score" exact>
 
             <Score />
 
           </Route> */}
-    {/* </Routes>
+          </Routes>
         </ Router>
+
       </ScoreContext.Provider> */} 
             
             <Cards 
@@ -36,7 +40,12 @@ const App = () => {
             />
          
 
-      
+      </ScoreContext.Provider>
+
+
+
+
+
     </div>
 
 
