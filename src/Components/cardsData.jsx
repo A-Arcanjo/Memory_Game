@@ -1,26 +1,26 @@
 export const data = [
     {
-        color: "red",
+        src:"../assets/card_front/brachios.png",
         matched:false
     },
     {
-        color: "yellow",
+        src: "../assets/card_front/celofizis.jpg",
         matched:false
     },
     {
-        color: "green",
+        src: "../assets/card_front/Gallimimus.jpg",
         matched:false
     },
     {
-        color: "blue",
+        src: "../assets/card_front/megalosaurus.png",
         matched:false
     },
     {
-        color: "pink",
+        src: "../assets/card_front/psittacosaurus.jpg",
         matched:false
     },
     {
-        color: "orange",
+        src: "../assets/card_front/pterodactyl.jpg",
         matched:false
     },
 ]

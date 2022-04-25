@@ -28,10 +28,10 @@ const Cards = (props) => {
     // * MATCH CARDS
     useEffect(()=>{
     if(choiceOne && choiceTwo){
-        if(choiceOne.color === choiceTwo.color){
+        if(choiceOne.src === choiceTwo.src){
             setCards(previousCards => {
                 return previousCards.map(card => {
-                    if(card.color === choiceOne.color) {
+                    if(card.src === choiceOne.src) {
                         return {...card, matched:true}
                     } else {
                         return card
@@ -41,7 +41,7 @@ const Cards = (props) => {
              reset()
         } else {
           setTimeout( () => 
-          reset(), 2000) }                    
+          reset(), 1500) }                    
     } 
 },[choiceOne, choiceTwo])
 
@@ -51,6 +51,7 @@ const Cards = (props) => {
         setChoiceTwo(null) 
     }
 
+
   console.log(cards);
   return (
     <div>
@@ -59,6 +60,7 @@ const Cards = (props) => {
           <div className="heading_container">
             <h2>Player: {userData.playerName}</h2>
           </div>
+
 
           <div className="button_container">
             <button onClick={shuffleCards}>Load Cards</button>
@@ -71,7 +73,7 @@ const Cards = (props) => {
                      <SingleCard 
                      key={card.id}
                      card={card}
-                     color={card.color}
+                     src={card.src}
                      choseCards={choseCards}
                      flipped={card === choiceOne || card === choiceTwo || card.matched}
                      />
