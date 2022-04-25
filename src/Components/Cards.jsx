@@ -26,8 +26,8 @@ const Cards = (props) => {
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
     }
     
-     // * MATCH CARDS
- useEffect(()=>{
+    // * MATCH CARDS
+    useEffect(()=>{
     if(choiceOne && choiceTwo){
         if(choiceOne.color === choiceTwo.color){
             setCards(previousCards => {
@@ -39,13 +39,19 @@ const Cards = (props) => {
                     }
                 })
             })
-            setChoiceOne(null)
-            setChoiceTwo(null) 
+             reset()
         } else {
-            setChoiceOne(null)
-            setChoiceTwo(null)  }                    
-    }
+          setTimeout( () => 
+          reset(), 2000) }                    
+    } 
 },[choiceOne, choiceTwo])
+
+    //* RESET CHOICES 
+    const reset = () => {
+        setChoiceOne(null)
+        setChoiceTwo(null) 
+    }
+
 
  console.log(cards);
     return (
@@ -61,12 +67,14 @@ const Cards = (props) => {
           </div>
         <div>
             <div className="cards-container">
+                {/* // * Generate Cards */} 
                 {cards.map(card => (
                      <SingleCard 
                      key={card.id}
                      card={card}
                      color={card.color}
                      choseCards={choseCards}
+                     flipped={card === choiceOne || card === choiceTwo || card.matched}
                      />
                 ))}
             </div>

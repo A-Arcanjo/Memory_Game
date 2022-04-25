@@ -31,7 +31,9 @@ const App = () => {
         </ Router>
       </ScoreContext.Provider> */} 
             
-            <Cards />
+            <Cards 
+            
+            />
          
 
       

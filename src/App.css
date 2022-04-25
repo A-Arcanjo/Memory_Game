@@ -1,13 +1,5 @@
 
-/* * Andreia Styling * */
-
 /* CARDS */
-
-body {
-  height: 100%;
-  margin: 0 auto;
-}
-
 
 .cards-container {
   display: grid;
@@ -22,17 +14,22 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
- /* front of the card */
+
+/* front of the card */
+
 .card-front {
-  /* position: absolute; */
+  /* sets card back on top of card front*/
+  position: absolute;
   width: 120px;
   height: 120px;
-  /* transform:rotateY(90deg); */
+    /* hide card front*/
+  transform:rotateY(90deg);
 }
 
-/* .flipped .card-front {
-  transform: rotate(0deg)
-} */
+.flipped .card-front {
+  /* show the front again */
+    transform: rotate(0deg)
+  }
 
 /* back of the card */
 
@@ -41,10 +38,7 @@ body {
   width: 120px;
   height: 120px;
 }
-
-
-
-/* *  GIORGIO STYLING  * */
+/**************************************************/
 
 .navigation {
   display: flex;
