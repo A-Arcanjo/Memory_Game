@@ -15,7 +15,7 @@ const LoginForm = () => {
   const [nameChanged, setPlayerNameChanged] = useState(false);
   // const [email, setEmail] = useState("");
   // const [emailChanged, setEmailChanged] = useState(false);
-  const emailErrorDiv = React.createRef();
+  // const emailErrorDiv = React.createRef();
 
   // const score1 = useContext(ScoreContext);
 
@@ -169,7 +169,9 @@ const LoginForm = () => {
                 Incorrect format
               </div> */}
                 <div className="button_container">
-                  <button type="submit">Play</button>
+                  <button className="playButton" type="submit">
+                    Play
+                  </button>
                 </div>
               </form>
             </div>
