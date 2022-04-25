@@ -21,6 +21,11 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.card img {
+  
+  
+}
 /* front of the card */
 
 .card-front {
@@ -32,10 +37,7 @@ body {
   transform:rotateY(90deg);
 }
 
-.card-front img {
-  
-  
-}
+
 .flipped .card-front {
   /* show the front again */
     transform: rotate(0deg)

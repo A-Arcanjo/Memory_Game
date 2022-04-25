@@ -28,10 +28,10 @@ const Cards = () => {
     // * MATCH CARDS
     useEffect(()=>{
     if(choiceOne && choiceTwo){
-        if(choiceOne.color === choiceTwo.color){
+        if(choiceOne.src === choiceTwo.src){
             setCards(previousCards => {
                 return previousCards.map(card => {
-                    if(card.color === choiceOne.color) {
+                    if(card.src === choiceOne.src) {
                         return {...card, matched:true}
                     } else {
                         return card
@@ -72,7 +72,7 @@ const Cards = () => {
                      <SingleCard 
                      key={card.id}
                      card={card}
-                     color={card.color}
+                     src={card.src}
                      choseCards={choseCards}
                      flipped={card === choiceOne || card === choiceTwo || card.matched}
                      />
