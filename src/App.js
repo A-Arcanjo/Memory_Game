@@ -32,6 +32,14 @@ const App = () => {
           </Route> */}
           </Routes>
         </ Router>
+
+      </ScoreContext.Provider> */} 
+            
+            <Cards 
+            
+            />
+         
+
       </ScoreContext.Provider>
 
 

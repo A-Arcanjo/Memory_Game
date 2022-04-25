@@ -24,27 +24,32 @@ const Cards = (props) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
 
-  // * MATCH CARDS
-  useEffect(() => {
-    if (choiceOne && choiceTwo) {
-      if (choiceOne.color === choiceTwo.color) {
-        setCards((previousCards) => {
-          return previousCards.map((card) => {
-            if (card.color === choiceOne.color) {
-              return { ...card, matched: true };
-            } else {
-              return card;
-            }
-          });
-        });
-        setChoiceOne(null);
-        setChoiceTwo(null);
-      } else {
-        setChoiceOne(null);
-        setChoiceTwo(null);
-      }
+    
+    // * MATCH CARDS
+    useEffect(()=>{
+    if(choiceOne && choiceTwo){
+        if(choiceOne.color === choiceTwo.color){
+            setCards(previousCards => {
+                return previousCards.map(card => {
+                    if(card.color === choiceOne.color) {
+                        return {...card, matched:true}
+                    } else {
+                        return card
+                    }
+                })
+            })
+             reset()
+        } else {
+          setTimeout( () => 
+          reset(), 2000) }                    
+    } 
+},[choiceOne, choiceTwo])
+
+    //* RESET CHOICES 
+    const reset = () => {
+        setChoiceOne(null)
+        setChoiceTwo(null) 
     }
-  }, [choiceOne, choiceTwo]);
 
   console.log(cards);
   return (
@@ -54,19 +59,24 @@ const Cards = (props) => {
           <div className="heading_container">
             <h2>Player: {userData.playerName}</h2>
           </div>
+
           <div className="button_container">
             <button onClick={shuffleCards}>Load Cards</button>
           </div>
           <div>
             <div className="cards-container">
-              {cards.map((card) => (
-                <SingleCard
-                  key={card.id}
-                  card={card}
-                  color={card.color}
-                  choseCards={choseCards}
-                />
-              ))}
+
+                {/* // * Generate Cards */} 
+                {cards.map(card => (
+                     <SingleCard 
+                     key={card.id}
+                     card={card}
+                     color={card.color}
+                     choseCards={choseCards}
+                     flipped={card === choiceOne || card === choiceTwo || card.matched}
+                     />
+                ))}
+                
             </div>
           </div>
         </div>
