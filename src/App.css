@@ -7,6 +7,10 @@ body {
 
 /* CARDS */
 
+.dinoss{
+  width: 100px;
+  height:100px;
+}
 
 .cards-container {
   display: grid;
@@ -17,14 +21,14 @@ body {
 
 .card {
   position: relative;
-  border: 2px solid rgb(155, 127, 127);
-  border-radius: 5px;
   cursor: pointer;
 }
 
 .card img {
-  
-  
+  width:100%;
+  display: block;
+  border: 2px solid rgb(155, 127, 127);
+  border-radius: 5px;
 }
 /* front of the card */
 

@@ -4,10 +4,11 @@ import SingleCard from "./SingleCard";
 import { data } from "./cardsData";
 
 const Cards = () => {
-  //const { userData } = useContext(ScoreContext);
+  const { userData } = useContext(ScoreContext);
   const [cards, setCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
+  const [count, setCount] =useState(0)
 
   // * SHUFFLE CARDS
   const shuffleCards = () => {
@@ -48,7 +49,7 @@ const Cards = () => {
     //* RESET CHOICES 
     const reset = () => {
         setChoiceOne(null)
-        setChoiceTwo(null) 
+        setChoiceTwo(null)
     }
 
   console.log(cards);
@@ -57,8 +58,8 @@ const Cards = () => {
       <div className="container_load">
         <div className="form_container">
           <div className="heading_container">
-            <h2>Player: </h2>
-            {/* {userData.playerName} */}
+            <h2>Player: {userData.playerName}  </h2>
+            
           </div>
 
           <div className="button_container">
@@ -66,13 +67,13 @@ const Cards = () => {
           </div>
           <div>
             <div className="cards-container">
-
+                 
                 {/* // * Generate Cards */} 
                 {cards.map(card => (
                      <SingleCard 
                      key={card.id}
-                     card={card}
                      src={card.src}
+                     card={card}
                      choseCards={choseCards}
                      flipped={card === choiceOne || card === choiceTwo || card.matched}
                      />
