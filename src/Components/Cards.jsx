@@ -6,7 +6,7 @@ import { data } from "./cardsData";
 //*GIORGIO
 
 const Cards = (props) => {
-  const { userData } = useContext(LoginContext);
+  //const { userData } = useContext(LoginContext);
   const [cards, setCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
@@ -65,7 +65,7 @@ const Cards = (props) => {
       <div className="container_load">
         <div className="form_container">
           <div className="heading_container">
-            <h2>Player: {userData.playerName} </h2>
+            {/* <h2>Player: {userData.playerName} </h2> */}
           </div>
 
           <div className="button_container">
