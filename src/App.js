@@ -78,7 +78,7 @@ const App = () => {
 
 
     <div className="">
-      {/* <ScoreContext.Provider value={{ userData, setUserData }}>
+       <ScoreContext.Provider value={{ userData, setUserData }}>
         <Router>
           <header>
             <Navigation />
@@ -86,9 +86,6 @@ const App = () => {
           <Routes>
             <Route path="/home" element={<StartGame />} />
 
-
-  
-    <>
 
 
       <div className="">
