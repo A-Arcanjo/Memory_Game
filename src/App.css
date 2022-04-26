@@ -218,3 +218,40 @@ textarea {
   padding-bottom: 5px;
   color: red;
 }
+
+h4 {
+  padding: 1rem;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: orangered;
+}
+
+.infos {
+  display: flex;
+}
+
+.info-container {
+  width: 300px;
+  margin-left: 100px;
+  margin-top: 3rem;
+  background-color: rgb(50, 165, 47);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 40px 20px 40px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.info-container p {
+  font-weight: bold;
+}
+
+.logo_info {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.info {
+  width: 30rem;
+}

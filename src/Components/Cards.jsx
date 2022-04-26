@@ -3,7 +3,11 @@ import { ScoreContext } from "../App";
 import SingleCard from "./SingleCard";
 import { data } from "./cardsData";
 
+//*GIORGIO
+
 const Cards = (props) => {
+  const [count, setCount] = useState(0);
+
   const { userData } = useContext(ScoreContext);
   const [cards, setCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
@@ -47,6 +51,12 @@ const Cards = (props) => {
   }, [choiceOne, choiceTwo]);
 
   console.log(cards);
+  //*GIORGIO
+
+  const updateCount = () => {
+    setCount(count + 1);
+  };
+
   return (
     <div>
       <div className="container_load">
@@ -54,6 +64,7 @@ const Cards = (props) => {
           <div className="heading_container">
             <h2>Player: {userData.playerName}</h2>
           </div>
+
           <div className="button_container">
             <button onClick={shuffleCards}>Load Cards</button>
           </div>
@@ -61,6 +72,7 @@ const Cards = (props) => {
             <div className="cards-container">
               {cards.map((card) => (
                 <SingleCard
+                  updateCount={updateCount}
                   key={card.id}
                   card={card}
                   color={card.color}
