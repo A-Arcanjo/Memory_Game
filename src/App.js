@@ -78,7 +78,7 @@ const App = () => {
     <>
 
       <div className="">
-        <LoginContext.Provider value={{ userData, setUserData }}>
+        {/* <LoginContext.Provider value={{ userData, setUserData }}>
           <Router>
             <header>
               <Navigation />
@@ -138,16 +138,12 @@ const App = () => {
             <Score />
 
 
-          </Route> */}
+          </Route>
             </Routes>
           </ Router>
-        </LoginContext.Provider>
+        </LoginContext.Provider> */}
 
-
-
-
-
-
+<Cards/>
       </div>
 
     </>
