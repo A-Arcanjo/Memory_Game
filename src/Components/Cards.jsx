@@ -57,6 +57,7 @@ const Cards = (props) => {
   //*GIORGIO
 
   const updateCount = () => {
+    console.log("updateCount");
     setCount(count + 1);
   };
 
@@ -72,6 +73,7 @@ const Cards = (props) => {
             <button onClick={shuffleCards}>Load Cards</button>
           </div>
           <div>
+            <div>{count}</div>
             <div className="cards-container">
               {/* // * Generate Cards */}
               {cards.map((card) => (
@@ -80,6 +82,7 @@ const Cards = (props) => {
                   src={card.src}
                   card={card}
                   choseCards={choseCards}
+                  updateCount={updateCount}
                   flipped={
                     card === choiceOne || card === choiceTwo || card.matched
                   }
