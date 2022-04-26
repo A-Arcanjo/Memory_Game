@@ -1,21 +1,23 @@
 body {
-  background-color: #3da6e0;
+  background-color: #d8637e;
   height: 100%;
   margin: 0 auto;
 }
 
-/* CARDS */
-
-.dinoss {
-  width: 100px;
-  height: 100px;
+header {
+  background-color: hsla(138, 75%, 49%, 0.623);
+  box-shadow: 10px 10px 30px grey;
 }
 
+/* CARDS */
+
 .cards-container {
+  width: 30rem;
+  margin: 20px;
+  padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
-  margin: 50px;
 }
 
 .card {
@@ -37,18 +39,17 @@ body {
   width: 120px;
   height: 120px;
 
-    /* hide card front*/
-  transform:rotateY(90deg);
-  transition:all ease-in 0.2s;
-
+  /* hide card front*/
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
 }
 
 .flipped .card-front {
   /* show the front again */
 
-    transform: rotate(0deg);
-    transition-delay: 0.2s;
-  }
+  transform: rotate(0deg);
+  transition-delay: 0.2s;
+}
 
 /* back of the card */
 
@@ -56,10 +57,9 @@ body {
   display: block;
   width: 120px;
   height: 120px;
-  transition:all ease-in 0.2s;
+  transition: all ease-in 0.2s;
   transition-delay: 0.2s;
 }
-
 
 .flipped .card-back {
   transform: rotateY(90deg);
@@ -173,15 +173,23 @@ a:hover {
 }
 
 .form_container {
-  margin-top: 3rem;
-  background-color: rgb(50, 165, 47);
-  display: inline-block;
+  margin-top: 2rem;
+  background-color: #f7b629;
   padding: 10px 40px 20px 40px;
   border-radius: 10px;
   align-items: center;
 }
 
+.container_Player {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: column;
+}
+
 .container_load {
+  margin: 5rem 5rem;
+  background-color: #f7b629;
   display: flex;
   justify-content: center;
   padding: 10px 40px 20px 40px;
@@ -259,7 +267,7 @@ h4 {
   width: 300px;
   margin-left: 100px;
   margin-top: 3rem;
-  background-color: rgb(50, 165, 47);
+  background-color: #f3a02b;
   display: flex;
   flex-direction: column;
   padding: 10px 40px 20px 40px;
