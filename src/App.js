@@ -15,7 +15,7 @@ const App = () => {
 
 
     <div className="">
-      <ScoreContext.Provider value={{ userData, setUserData }}>
+      {/* <ScoreContext.Provider value={{ userData, setUserData }}>
         <Router>
           <header>
             <Navigation />
@@ -29,23 +29,13 @@ const App = () => {
 
             <Score />
 
-          </Route> */}
+          </Route> 
           </Routes>
         </ Router>
 
-      </ScoreContext.Provider> */} 
+      </ScoreContext.Provider>  */}
             
-            <Cards 
-            
-            />
-         
-
-      </ScoreContext.Provider>
-
-
-
-
-
+            <Cards /> 
     </div>
 
 

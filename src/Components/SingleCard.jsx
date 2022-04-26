@@ -1,8 +1,6 @@
 import React from "react";
 import VolcanoErupting from "../assets/volcano_erupting.png";
 
-
-
 const SingleCard = (props) => {
 
   const handleClick = () => {
@@ -11,13 +9,13 @@ const SingleCard = (props) => {
 
     return (
         <div  className="card"> 
-
             <div className={props.flipped ? "flipped" : ""}>
 
                 <img 
                 className="card-front" 
                 src={props.src} 
-                alt=""/> 
+                alt=""
+                /> 
 
                 <img 
                 src={VolcanoErupting} 

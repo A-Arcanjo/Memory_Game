@@ -1,13 +1,16 @@
-
-
-/* CARDS */
-
 body {
   background-color: #3da6e0;
   height: 100%;
   margin: 0 auto;
 }
 
+
+/* CARDS */
+
+.dinoss{
+  width: 100px;
+  height:100px;
+}
 
 .cards-container {
   display: grid;
@@ -18,9 +21,14 @@ body {
 
 .card {
   position: relative;
+  cursor: pointer;
+}
+
+.card img {
+  width:100%;
+  display: block;
   border: 2px solid rgb(155, 127, 127);
   border-radius: 5px;
-  cursor: pointer;
 }
 /* front of the card */
 
@@ -32,6 +40,7 @@ body {
     /* hide card front*/
   transform:rotateY(90deg);
 }
+
 
 .flipped .card-front {
   /* show the front again */
