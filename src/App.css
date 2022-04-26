@@ -4,8 +4,12 @@ body {
   margin: 0 auto;
 }
 
-
 /* CARDS */
+
+.dinoss {
+  width: 100px;
+  height: 100px;
+}
 
 .cards-container {
   display: grid;
@@ -20,7 +24,7 @@ body {
 }
 
 .card img {
-  width:100%;
+  width: 100%;
   display: block;
   border: 2px solid rgb(155, 127, 127);
   border-radius: 5px;
@@ -32,14 +36,16 @@ body {
   position: absolute;
   width: 120px;
   height: 120px;
+
     /* hide card front*/
   transform:rotateY(90deg);
   transition:all ease-in 0.2s;
-}
 
+}
 
 .flipped .card-front {
   /* show the front again */
+
     transform: rotate(0deg);
     transition-delay: 0.2s;
   }
@@ -53,6 +59,7 @@ body {
   transition:all ease-in 0.2s;
   transition-delay: 0.2s;
 }
+
 
 .flipped .card-back {
   transform: rotateY(90deg);
@@ -73,7 +80,6 @@ body {
   font-weight: bold;
   padding: 3rem;
 }
-
 
 .navigation {
   display: flex;
@@ -273,4 +279,20 @@ h4 {
 
 .info {
   width: 30rem;
+}
+
+.container_HighScore {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container_Count {
+  margin-right: 2rem;
+}
+
+.container_topButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

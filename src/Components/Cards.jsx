@@ -3,8 +3,6 @@ import { LoginContext } from "../App";
 import SingleCard from "./SingleCard";
 import { data } from "./cardsData";
 
-//*GIORGIO
-
 const Cards = (props) => {
   const { userData } = useContext(LoginContext);
   const [cards, setCards] = useState([]);
@@ -57,6 +55,7 @@ const Cards = (props) => {
   //*GIORGIO
 
   const updateCount = () => {
+    console.log("updateCount");
     setCount(count + 1);
   };
 
@@ -67,9 +66,11 @@ const Cards = (props) => {
           <div className="heading_container">
             <h2>Player: {userData.playerName} </h2>
           </div>
-
-          <div className="button_container">
-            <button onClick={shuffleCards}>Load Cards</button>
+          <div className="container_topButtons">
+            <div>Turn: {count}</div>
+            <div className="button_container">
+              <button onClick={shuffleCards}>Load Cards</button>
+            </div>
           </div>
           <div>
             <div className="cards-container">
@@ -80,6 +81,7 @@ const Cards = (props) => {
                   src={card.src}
                   card={card}
                   choseCards={choseCards}
+                  updateCount={updateCount}
                   flipped={
                     card === choiceOne || card === choiceTwo || card.matched
                   }
