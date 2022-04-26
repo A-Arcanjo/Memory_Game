@@ -49,10 +49,6 @@ const App = () => {
         </LoginContext.Provider>
 
 
-
-
-
-
       </div>
 
     </>
