@@ -8,7 +8,7 @@ import StartGame from "./views/StartGame";
 import Info from "./views/Info";
 import './App.css';
 
-export const ScoreContext = createContext();
+export const LoginContext = createContext();
 
 const App = () => {
   const [userData, setUserData] = useState({ playerName: null });
@@ -75,21 +75,10 @@ const App = () => {
   }, []);
 
   return (
-
-
-    <div className="">
-       <ScoreContext.Provider value={{ userData, setUserData }}>
-        <Router>
-          <header>
-            <Navigation />
-          </header>
-          <Routes>
-            <Route path="/home" element={<StartGame />} />
-
-
+    <>
 
       <div className="">
-        <ScoreContext.Provider value={{ userData, setUserData }}>
+        <LoginContext.Provider value={{ userData, setUserData }}>
           <Router>
             <header>
               <Navigation />
@@ -152,7 +141,7 @@ const App = () => {
           </Route> */}
             </Routes>
           </ Router>
-        </ScoreContext.Provider>
+        </LoginContext.Provider>
 
 
 

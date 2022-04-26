@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ScoreContext } from "../App";
+import { LoginContext } from "../App";
 
 const LoginForm = () => {
-  const { setUserData } = useContext(ScoreContext);
+  const { setUserData } = useContext(LoginContext);
   const navigate = useNavigate();
 
   const [errorPlayerName, setErrorPlayerName] = useState("");
