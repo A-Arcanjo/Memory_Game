@@ -1,7 +1,5 @@
 import React from "react";
-import VolcanoErupting from "../assets/volcano_erupting.png"
-
-
+import VolcanoErupting from "../assets/volcano_erupting.png";
 
 const SingleCard = (props) => {
 
@@ -11,9 +9,14 @@ const SingleCard = (props) => {
 
     return (
         <div  className="card"> 
-            <div >
-                <div style={{backgroundColor : props.color}} className="card-front" ></div> 
-                
+            <div className={props.flipped ? "flipped" : ""}>
+
+                <img 
+                className="card-front" 
+                src={props.src} 
+                alt=""
+                /> 
+
                 <img 
                 src={VolcanoErupting} 
                 alt="volcano erupting" 

@@ -12,6 +12,7 @@ export const ScoreContext = createContext();
 
 const App = () => {
   const [userData, setUserData] = useState({ playerName: null });
+
   const [highScore, setHighScore] = useState(0);
 
 
@@ -74,6 +75,19 @@ const App = () => {
   }, []);
 
   return (
+
+
+    <div className="">
+      {/* <ScoreContext.Provider value={{ userData, setUserData }}>
+        <Router>
+          <header>
+            <Navigation />
+          </header>
+          <Routes>
+            <Route path="/home" element={<StartGame />} />
+
+
+  
     <>
 
 
@@ -137,10 +151,12 @@ const App = () => {
 
             <Score />
 
+
           </Route> */}
             </Routes>
           </ Router>
         </ScoreContext.Provider>
+
 
 
 
