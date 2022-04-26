@@ -8,7 +8,10 @@ const SingleCard = (props) => {
 
   return (
     <div className="card">
-      <div>
+      <div
+        className={props.flipped ? "flipped" : ""}
+        onClick={props.updateCount}
+      >
         <img className="card-front" src={props.src} alt="" />
 
         <img
