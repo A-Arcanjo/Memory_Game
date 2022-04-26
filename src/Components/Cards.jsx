@@ -3,7 +3,11 @@ import { ScoreContext } from "../App";
 import SingleCard from "./SingleCard";
 import { data } from "./cardsData";
 
-const Cards = () => {
+
+//*GIORGIO
+
+const Cards = (props) => {
+
   const { userData } = useContext(ScoreContext);
   const [cards, setCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
@@ -53,6 +57,12 @@ const Cards = () => {
     }
 
   console.log(cards);
+  //*GIORGIO
+
+  const updateCount = () => {
+    setCount(count + 1);
+  };
+
   return (
     <div>
       <div className="container_load">
@@ -67,6 +77,7 @@ const Cards = () => {
           </div>
           <div>
             <div className="cards-container">
+
                  
                 {/* // * Generate Cards */} 
                 {cards.map(card => (
@@ -78,7 +89,7 @@ const Cards = () => {
                      flipped={card === choiceOne || card === choiceTwo || card.matched}
                      />
                 ))}
-                
+
             </div>
           </div>
         </div>

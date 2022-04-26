@@ -16,7 +16,7 @@ const StartGame = () => {
   return (
     <>
       <div className="logo">
-        <Link to="/home">
+        <Link to="/">
           <img className="gif_denver" src={denver} alt="Denver"></img>
         </Link>
       </div>
