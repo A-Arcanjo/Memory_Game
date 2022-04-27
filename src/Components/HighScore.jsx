@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cards from "./Cards";
 
-const HighScore = () => {
+const HighScore = (props) => {
   const [highScore, setHighScore] = useState(0);
   const [game, setGame] = useState([]);
   const [options, setOptions] = useState([]);
@@ -93,11 +93,11 @@ const HighScore = () => {
           path="/cards"
           options={options}
           setOptions={setOptions}
-          highScore={highScore}
+          highScore={props.highScore}
           setHighScore={setHighScore}
         />
       ) : (
-        <h2></h2>
+        <h2>Level</h2>
       )}
     </>
   );

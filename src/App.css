@@ -136,6 +136,7 @@ main img {
 }
 
 .logo {
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
 }
@@ -260,12 +261,14 @@ h4 {
 }
 
 .infos {
+  margin-top: 3rem;
   display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .info-container {
   width: 300px;
-  margin-left: 100px;
   margin-top: 3rem;
   background-color: #f3a02b;
   display: flex;
@@ -277,12 +280,6 @@ h4 {
 
 .info-container p {
   font-weight: bold;
-}
-
-.logo_info {
-  display: flex;
-  justify-content: right;
-  align-items: center;
 }
 
 .info {

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { LoginContext } from "../App";
 import SingleCard from "./SingleCard";
 import { data } from "./cardsData";
+import HighScore from "./HighScore";
 
 const Cards = (props) => {
   const { userData } = useContext(LoginContext);
@@ -75,6 +76,7 @@ const Cards = (props) => {
             </div>
           </div>
           <div>
+            {/* <HighScore highScore={highScore} /> */}
             <div className="cards-container">
               {/* // * Generate Cards */}
               {cards.map((card) => (
