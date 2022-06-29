@@ -6,7 +6,7 @@ import Navigation from './Components/Navigation';
 import LoginPage from './views/LoginPage';
 import StartGame from "./views/StartGame";
 import Info from "./views/Info";
-import HighScore from "./Components/HighScores";
+import HighScore from "./Components/HighScore";
 import './App.css';
 
 export const LoginContext = createContext();
